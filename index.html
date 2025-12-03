@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Blockchain Simulator - Futuristic Edition</title>
+    <link rel="stylesheet" href="style4.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <button id="tab-home" class="active">Home</button>
+      <button id="tab-hash">Hash</button>
+      <button id="tab-block">Block</button>
+      <button id="tab-chain">Block Chain</button>
+      <button id="tab-ecc">ECC Signature</button>
+      <button id="tab-consensus">Konsensus</button>
+      <button id="tab-profile" class="right-align">Profil Saya</button>
+    </div>
+
+    <div id="page-home" class="page active">
+      <div class="futuristic-jumbotron">
+        <h1> BLOCKCHAIN SIMULATOR </h1>
+        <p>Jelajahi dan pelajari konsep dasar Teknologi Blockchain dengan estetika futuristik.</p>
+        <div id="datetime"></div>
+        <div id="btn-home-to-hash" class="holographic-element">BLOCKCHAIN IS THE FUTURE</div>
+      </div>
+    </div>
+
+    <div id="page-hash" class="page">
+      <h2>HASH GENERATOR</h2>
+      <label for="hash-input">INPUT DATA:</label>
+      <textarea id="hash-input" rows="4" placeholder="Ketik data apa pun di sini..."></textarea>
+      <label>HASH OUTPUT:</label>
+      <div id="hash-output" class="output"></div>
+    </div>
+
+    <div id="page-block" class="page">
+      <h2>SINGLE BLOCK</h2>
+
+      <label for="block-number"># (BLOCK INDEX):</label>
+      <input id="block-number" type="number" min="0" value="0" />
+
+      <label for="block-data">DATA TRANSAKSI:</label>
+      <textarea id="block-data" rows="4"></textarea>
+
+      <label for="block-nonce">NONCE:</label>
+      <input id="block-nonce" type="text" maxlength="9" />
+
+      <label for="block-timestamp">TIMESTAMP:</label>
+      <input id="block-timestamp" type="text" readonly />
+
+      <label>HASH:</label>
+      <div id="block-hash" class="output"></div>
+
+      <button id="btn-mine" class="mine">INITIATE MINING</button>
+      
+      <div style="margin-top: 15px;">
+        <label for="speed-control">MINING SPEED:</label>
+        <select id="speed-control">
+          <option value="1">NORMAL (x1)</option>
+          <option value="10">FAST (x10)</option>
+          <option value="50">HYPER (x50)</option>
+        </select>
+        <div id="mining-status" class="status"></div>
+      </div>
+    </div>
+
+    <div id="page-chain" class="page">
+      <h2>BLOCKCHAIN</h2>
+      <div id="blockchain" class="blockchain-container"></div>
+      <div class="chain-controls">
+        <button id="btn-add-block" class="action-btn">ADD BLOCK</button>
+      </div>
+    </div>
+
+    <div id="page-ecc" class="page">
+      <h2>VERIFIKASI ECC DIGITAL SIGNATURE</h2>
+
+      <button id="btn-generate-key" class="action-btn">GENERATE KEY PAIR</button>
+      <p>Public Key dan Private Key dapat diedit untuk percobaan.</p>
+
+      <label>PUBLIC KEY:</label>
+      <textarea id="ecc-public" rows="3"></textarea>
+
+      <label>PRIVATE KEY:</label>
+      <textarea id="ecc-private" rows="3"></textarea>
+
+      <hr class="neon-divider"/>
+      <label>PESAN YANG DITANDATANGANI:</label>
+      <textarea id="ecc-message" rows="3"></textarea>
+
+      <button id="btn-sign" class="action-btn">SIGN MESSAGE</button>
+      <label>HASIL SIGNATURE (DER HEX):</label>
+      <textarea id="ecc-signature" rows="3" readonly></textarea>
+
+      <hr class="neon-divider"/>
+      <button id="btn-verify" class="verify-btn">VERIFY SIGNATURE</button>
+      <div id="ecc-verify-result" class="output"></div>
+    </div>
+
+    <div id="page-consensus" class="page">
+      <h2>SIMULASI KONSENSUS</h2>
+
+      <div class="wallets">
+        <div class="wallet" data-user="A">
+          <h3>USER A</h3>
+          <div>SALDO: <span id="saldo-A">100</span> COINS</div>
+          <label>PENERIMA:</label>
+          <select id="receiver-A">
+            <option value="B">USER B</option>
+            <option value="C">USER C</option>
+          </select>
+          <label>JUMLAH:</label>
+          <input id="amount-A" type="number" min="1" value="10" />
+          <button id="send-A" class="send-btn">SEND TRANSACTION</button>
+        </div>
+
+        <div class="wallet" data-user="B">
+          <h3>USER B</h3>
+          <div>SALDO: <span id="saldo-B">100</span> COINS</div>
+          <label>PENERIMA:</label>
+          <select id="receiver-B">
+            <option value="A">USER A</option>
+            <option value="C">USER C</option>
+          </select>
+          <label>JUMLAH:</label>
+          <input id="amount-B" type="number" min="1" value="10" />
+          <button id="send-B" class="send-btn">SEND TRANSACTION</button>
+        </div>
+
+        <div class="wallet" data-user="C">
+          <h3>USER C</h3>
+          <div>SALDO: <span id="saldo-C">100</span> COINS</div>
+          <label>PENERIMA:</label>
+          <select id="receiver-C">
+            <option value="A">USER A</option>
+            <option value="B">USER B</option>
+          </select>
+          <label>JUMLAH:</label>
+          <input id="amount-C" type="number" min="1" value="10" />
+          <button id="send-C" class="send-btn">SEND TRANSACTION</button>
+        </div>
+      </div>
+
+      <div style="margin-top: 12px">
+        <label>MEMPOOL (PENDING TRANSACTIONS):</label>
+        <textarea
+          id="mempool"
+          rows="3"
+          placeholder="Setiap transaksi di baris baru. Contoh: A -> B:10"
+          readonly
+        ></textarea>
+      </div>
+
+      <div class="controls-group">
+        <button id="btn-mine-all">MINE ALL TRANSACTIONS</button>
+        <button id="btn-verify-consensus" class="verify-btn">VERIFY</button>
+        <button id="btn-consensus" class="consensus-btn">CONSENSUS</button>
+      </div>
+
+      <h3 style="margin-top: 20px">BLOCKCHAIN TIAP USER</h3>
+      <div id="chains">
+        <h4>DATABASE USER A</h4>
+        <div id="chain-A" class="chain-row"></div>
+        <h4>DATABASE USER B</h4>
+        <div id="chain-B" class="chain-row"></div>
+        <h4>DATABASE USER C</h4>
+        <div id="chain-C" class="chain-row"></div>
+      </div>
+    </div>
+
+    <div id="page-profile" class="page">
+      <h2>PROFILE SAYA</h2>
+      <div class="profile-card">
+        <img src="https://ik.imagekit.io/zendhyyy/1ZENDHY.JPG" alt="Foto Profil" /> 
+        <h2>MAYZENDHY PUTRA ARINDA</h2>
+        <p>TEKNOLOGI REKAYASA MULTIMEDIA</p>
+
+        <button id="btn-open-cv" class="action-btn" style="margin-top:15px;">
+            Software yang dikuasai
+        </button>
+
+              <div class="experience-section">
+                <h2>ORGANISASI</h2>
+
+                <div class="exp-item">
+                    <h4>3MT (MET Management Team) - Divisi Content Writer (Aug 2024 - Sekarang)</h4>
+                    <p>Bertugas sebagai Content Writer, membuat konten kreatif dan informatif untuk media sosial. Melakukan riset topik dan tren terkini untuk menghasilkan ide konten yang sesuai dengan kebutuhan target audiens. Menyusun jadwal dan perencanaan konten mingguan untuk menjaga konsistensi publikasi di berbagai platform.</p>
+                </div>
+
+                <div class="exp-item">
+                    <h4>PENS ESPORT - Divisi Event Manager (Aug 2024 - Sekarang)</h4>
+                    <p>Bertugas sebagai Event Manager, merencanakan dan melaksanakan acara esport yang sukses dan menarik perhatian peserta. Mengelola logistik acara, termasuk venue, peralatan, dan sumber daya manusia, memastikan kelancaran acara dan kepuasan peserta.</p>
+                </div>
+
+                <h2>PENGALAMAN</h2>
+
+                <div class="exp-item">
+                    <h4>TRM Expo: Fution (sie PDD) - Dokumentari, Kamera Broadcast (Jan 2024)</h4>
+                    <p>Melakukan penyortiran dan pengeditan foto, memilih gambar terbaik untuk publikasi dan arsip. Mengoperasikan kamera live streaming, memastikan kelancaran siaran langsung acara dan interaksi dengan audiens online.</p>
+                </div>
+                
+                <div class="exp-item">
+                    <h4>Immersive Fiesta 2024 (sie PDD) - Dokumentasi, Publikasi (May 2024)</h4>
+                    <p>Melakukan dokumentasi visual acara dan menciptakan konten yang menarik untuk keperluan promosi dan arsip. Membuat konten Reels Instagram yang kreatif dan menarik, meningkatkan visibilitas acara dan menarik perhatian calon peserta.</p>
+                </div>
+                
+                <div class="exp-item">
+                    <h4>PKKMB X Technogear 2024 - Liaison Officer (Aug 2024)</h4>
+                    <p>Memandu sesi tanya jawab FGD, memfasilitasi diskusi yang produktif dan mengumpulkan masukan dari peserta. Melakukan turis penilaian, mengumpulkan data dan informasi untuk evaluasi acara.</p>
+                </div>
+                
+                <div class="exp-item">
+                    <h4>Immersive Fiesta 2025 (sie Creative) - Media Production (Oct 2025)</h4>
+                    <p>Berperan dalam pembuatan teaser serta dokumentasi kegiatan divisi pendanaan, termasuk proses penyortiran dokumentasi Pre-Event dan The Day. Bertanggung jawab dalam pengoperasian kamera live streaming untuk memastikan siaran berlangsung lancar dan berkualitas.</p>
+                </div>
+            </div>
+          </div>
+
+        <div class="google-maps-container">
+            <h4>LOKASI PENS CAMPUS</h4>
+            <iframe
+                src="https://maps.google.com/maps?q=Politeknik%20Elektronika%20Negeri%20Surabaya&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                loading="lazy"></iframe>
+        </div>
+
+        <div class="contact-form-container">
+            <h4>HUBUNGI SAYA</h4>
+            <form>
+                <label>NAMA ANDA:</label>
+                <input type="text" required>
+
+                <label>EMAIL:</label>
+                <input type="email" required>
+
+                <label>NOMOR HP:</label>
+                <input type="tel" required>
+
+                <label>PESAN:</label>
+                <textarea rows="4" required></textarea>
+
+                <button type="submit" id="btn-send-message" class="action-btn">KIRIM PESAN</button>
+            </form>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="cv-modal" class="cv-modal">
+        <div class="cv-content">
+            <h3>SOFTWARE & TOOLS YANG DIKUASAI</h3>
+
+            <ul class="skill-list">
+                <li>Adobe Photoshop</li>
+                <li>Adobe Illustrator</li>
+                <li>Figma</li>
+                <li>Premiere Pro</li>
+                <li>Adobe After Effects</li>
+                <li>Visual Studio Code</li>
+                <li>JavaScript, HTML, CSS</li>
+            </ul>
+
+            <button id="btn-close-cv" class="action-btn">TUTUP</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/elliptic/6.5.4/elliptic.min.js"></script>
+    <script src="app4.js"></script>
+    
+  </body>
+</html>

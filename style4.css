@@ -1,0 +1,578 @@
+/* Ganti nama file menjadi style-futuristic-dark.css */
+
+/* Warna Palet:
+- Background Primer: Deep Dark Blue (#1a1a2e)
+- Background Sekunder (Glass): Semi-transparent Dark (#2d2d4b)
+- Aksen Neon Cyan: #00ffff
+- Aksen Neon Purple: #ff00a6
+- Text Default: Light Gray (#e0e0e0)
+*/
+
+/* ====== Umum ====== */
+body {
+  font-family: 'Consolas', 'Lucida Console', monospace; /* Font modern/futuristik */
+  margin: 0;
+  padding: 0;
+  background: #1a1a2e; /* Deep Dark Blue */
+  color: #e0e0e0; /* Light Gray */
+  letter-spacing: 0.5px;
+}
+
+h1, h2, h3, h4 {
+    color: #00ffff; /* Neon Cyan */
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+    font-weight: 300;
+}
+
+/* Holographic Effect Placeholder for Home Page */
+.holographic-element {
+    margin-top: 30px;
+    padding: 10px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #ff00a6; /* Neon Purple */
+    border: 1px solid #ff00a6;
+    box-shadow: 0 0 15px #ff00a6;
+    animation: neon-pulse 3s infinite alternate;
+    background: rgba(255, 0, 166, 0.1);
+    cursor: pointer;
+}
+
+@keyframes neon-pulse {
+  from { box-shadow: 0 0 5px #ff00a6, 0 0 10px #ff00a6; }
+  to { box-shadow: 0 0 15px #ff00a6, 0 0 25px #ff00a6; }
+}
+
+
+/* ====== Navbar ====== */
+.navbar {
+  display: flex;
+  background: #0f0f1c; /* Lebih gelap dari body */
+  border-bottom: 2px solid #00ffff; /* Neon Cyan line */
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+  padding: 0 10px;
+}
+
+.navbar button {
+  padding: 15px 20px;
+  color: #c0c0e0; 
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.navbar button:hover {
+  background: rgba(0, 255, 255, 0.1);
+  color: #00ffff;
+}
+
+.navbar button.active {
+  background: rgba(0, 255, 255, 0.2); /* Semi-transparan Cyan */
+  color: #00ffff;
+  border-bottom: 3px solid #ff00a6; /* Neon Purple untuk aktif */
+  margin-bottom: -3px; 
+}
+
+/* Posisikan tombol profil di kanan */
+.navbar button.right-align {
+  margin-left: auto;
+  color: #ff00a6;
+}
+.navbar button.right-align.active {
+  background: rgba(255, 0, 166, 0.2);
+  color: #ff00a6;
+  border-bottom: 3px solid #00ffff;
+}
+
+/* Neon Divider */
+.neon-divider {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 255, 255, 0), rgba(0, 255, 255, 0.75), rgba(0, 255, 255, 0));
+}
+
+/* ====== Halaman / Tab (Glassmorphism) ====== */
+.page {
+  display: none;
+  padding: 25px;
+}
+
+.page.active {
+  display: block;
+  /* Glassmorphism Effect */
+  background: rgba(26, 26, 46, 0.6); /* Dark semi-transparent */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 15px;
+  margin: 20px auto;
+  max-width: 1200px; 
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.15); /* Light cyan glow */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Jumbotron di Home Page */
+.futuristic-jumbotron {
+  text-align: center;
+  padding: 80px 20px;
+  background: none;
+  border-radius: 15px;
+}
+.futuristic-jumbotron h1 {
+    color: #00ffff;
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+.futuristic-jumbotron p {
+    color: #a0a0c0;
+    font-size: 1.1em;
+    font-style: italic;
+}
+#datetime {
+    margin-top: 25px;
+    font-size: 1.1em;
+    color: #ff00a6; /* Neon Purple */
+    font-weight: bold;
+    text-shadow: 0 0 5px #ff00a6;
+}
+
+
+/* ====== Elemen Form (Glassmorphism & Neon) ====== */
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: 500;
+  color: #00ffff; /* Neon Cyan */
+  font-size: 0.9em;
+  text-shadow: 0 0 3px rgba(0, 255, 255, 0.5);
+}
+
+textarea,
+input[type="text"],
+input[type="number"],
+select,
+.output {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 14px;
+  /* Glassmorphism Input */
+  background: rgba(45, 45, 75, 0.5); 
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  color: #e0e0e0;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+textarea:focus,
+input:focus,
+select:focus {
+    border-color: #ff00a6; /* Neon Purple saat focus */
+    box-shadow: 0 0 10px rgba(255, 0, 166, 0.7);
+    outline: none;
+    background: rgba(60, 60, 90, 0.7);
+}
+
+.output {
+  min-height: 1.5em;
+  word-break: break-all; /* PERBAIKAN: Agar hash panjang di-wrap */
+  white-space: normal; /* PERBAIKAN: Agar tidak overflow horizontal */
+  background: rgba(30, 30, 50, 0.7);
+  color: #00ffff; /* Output text in Neon Cyan */
+  box-shadow: inset 0 0 5px rgba(0, 255, 255, 0.3);
+}
+
+/* Grup kontrol */
+.controls-group {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+/* Tombol Aksi (General Buttons) */
+.action-btn,
+.mine,
+.send-btn,
+#btn-mine-all,
+#btn-verify-consensus,
+#btn-consensus {
+  margin-top: 10px;
+  padding: 12px 20px;
+  background: #ff00a6; /* Neon Purple */
+  color: white;
+  border: 1px solid #ff00a6;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 0, 166, 0.5);
+  text-transform: uppercase;
+}
+
+.action-btn:hover,
+.mine:hover,
+.send-btn:hover {
+  background: #00ffff; /* Hover ke Neon Cyan */
+  color: #1a1a2e;
+  border-color: #00ffff;
+  box-shadow: 0 0 15px #00ffff;
+}
+
+/* Tombol khusus untuk Mining (Cyan) */
+#btn-mine-all,
+.mine {
+  background-color: #00ffff; 
+  color: #1a1a2e;
+  border-color: #00ffff;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+}
+#btn-mine-all:hover,
+.mine:hover {
+  background-color: #ff00a6;
+  color: white;
+  border-color: #ff00a6;
+  box-shadow: 0 0 15px #ff00a6;
+}
+
+/* Tombol khusus untuk Verifikasi (Purple) */
+.verify-btn,
+#btn-verify-consensus {
+  background-color: #ff00a6;
+  color: white;
+  border-color: #ff00a6;
+}
+.verify-btn:hover,
+#btn-verify-consensus:hover {
+  background-color: #00ffff;
+  color: #1a1a2e;
+}
+
+/* Tombol khusus untuk Konsensus (Hijau/Abu-abu - Netral) */
+.consensus-btn,
+#btn-consensus {
+  background-color: #505080; 
+  color: white;
+  border-color: #505080;
+  box-shadow: 0 0 10px rgba(80, 80, 128, 0.5);
+}
+.consensus-btn:hover,
+#btn-consensus:hover {
+  background-color: #00ffff;
+  color: #1a1a2e;
+  border-color: #00ffff;
+}
+
+.status {
+    color: #00ffff;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+
+/* ====== Blockchain (blok berjajar) - Holographic Blocks ====== */
+.blockchain-container {
+  white-space: nowrap; 
+  overflow-x: auto; 
+  padding-bottom: 15px;
+  margin-top: 15px;
+}
+
+.blockchain-block {
+  display: inline-block; 
+  vertical-align: top;
+  min-width: 280px;
+  max-width: 280px;
+  padding: 15px;
+  margin-right: 15px;
+  border-radius: 10px;
+  /* Holographic Block Base */
+  background: rgba(26, 26, 46, 0.8); /* Almost opaque */
+  border: 1px solid rgba(0, 255, 255, 0.5); /* Cyan border */
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3); /* Cyan glow */
+  box-sizing: border-box;
+}
+
+/* Konsensus Page Styles */
+.wallets {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.wallet {
+  /* Glassmorphism Wallet */
+  backdrop-filter: blur(5px);
+  background: rgba(45, 45, 75, 0.4); 
+  border: 1px solid rgba(255, 0, 166, 0.4); /* Purple border */
+  box-shadow: 0 0 10px rgba(255, 0, 166, 0.2);
+  padding: 15px;
+  flex: 1;
+  border-radius: 10px;
+}
+.wallet h3 {
+    color: #ff00a6;
+    margin-top: 0;
+    border-bottom: 1px solid rgba(255, 0, 166, 0.3);
+    padding-bottom: 5px;
+}
+
+.chain-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  overflow-x: auto;
+  padding-bottom: 5px;
+}
+.chain-block {
+  /* Blocks di Konsensus (lebih kecil) */
+  backdrop-filter: blur(5px);
+  background: rgba(26, 26, 46, 0.8);
+  border: 1px solid #00ffff;
+  padding: 8px;
+  border-radius: 5px;
+  min-width: 200px;
+  font-size: 0.8em;
+  color: #c0c0e0;
+}
+.chain-block.invalid {
+  background: rgba(255, 0, 0, 0.3); /* Merah semi-transparan */
+  border-color: #ff0000; /* Merah terang */
+  box-shadow: 0 0 10px #ff0000;
+}
+.chain-block .small {
+    margin-top: 5px;
+    font-size: 0.9em;
+    color: #00ffff;
+}
+.chain-block textarea, .chain-block input {
+    margin-top: 3px;
+    padding: 3px;
+    background: rgba(45, 45, 75, 0.5);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    color: #e0e0e0;
+    font-size: 0.8em;
+}
+
+/* FIX: Agar tombol MINE BLOCK berada di bawah DATA (Chain Visualizer) */
+.blockchain-block textarea,
+.blockchain-block .mine {
+    display: block; /* Memaksa elemen menempati baris penuh */
+    width: 100%;
+    margin-top: 5px; 
+}
+
+/* ====== Tambahan Styling untuk Formulir Kontak ====== */
+/* ====== Tambahan Styling untuk Formulir Kontak ====== */
+.contact-form-container {
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 10px;
+    /* Glassmorphism & Neon for Form */
+    backdrop-filter: blur(5px);
+    background: rgba(45, 45, 75, 0.4); 
+    box-shadow: 0 0 15px rgba(255, 0, 166, 0.3); /* Neon Purple Glow */
+    border: 1px solid rgba(255, 0, 166, 0.5);
+    text-align: left; /* Mengatur label agar rata kiri */
+    
+    /* SOLUSI: Pembatasan Lebar dan Pemusatan */
+    max-width: 710px; /* Batasi lebar agar tidak terlalu lebar */
+    margin-left: auto; /* Memusatkan kontainer */
+    margin-right: auto; /* Memusatkan kontainer */
+}
+
+/* Jika Anda benar-benar ingin 725px, Anda juga HARUS mengubah .profile-card: */
+.profile-card {
+    /* ... styling lainnya ... */
+    max-width: 750px; /* Diubah dari 700px agar form 725px muat */
+    /* ... styling lainnya ... */
+}
+
+.contact-form-container h4 {
+    color: #ff00a6; /* Neon Purple */
+    text-shadow: 0 0 5px rgba(255, 0, 166, 0.5);
+    margin-top: 0;
+    border-bottom: 1px solid rgba(255, 0, 166, 0.2);
+    padding-bottom: 5px;
+    font-size: 1.1em;
+}
+
+/* Menggunakan kembali styling input yang sudah ada, tetapi spesifikkan width */
+.contact-form-container input[type="text"],
+.contact-form-container input[type="email"],
+.contact-form-container input[type="tel"],
+.contact-form-container textarea {
+    width: 100%;
+    margin-bottom: 15px; /* Tambahkan ruang di bawah setiap field */
+    /* Menggunakan styling glassmorphism yang sudah ada dari general input */
+}
+
+/* Modifikasi tombol KIRIM PESAN agar sesuai dengan formulir */
+#btn-send-message {
+    width: 100%;
+    /* Menggunakan styling action-btn/mine yang sudah ada (Neon Cyan) */
+    background-color: #00ffff; 
+    color: #1a1a2e;
+    border-color: #00ffff;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+}
+
+#btn-send-message:hover {
+    background-color: #ff00a6;
+    color: white;
+    border-color: #ff00a6;
+    box-shadow: 0 0 15px #ff00a6;
+}
+
+/* ========================================================================= */
+/* CATATAN: STYLE SPESIFIK PROFILE CARD (Dipindahkan dari index4.html) */
+/* ========================================================================= */
+.profile-card {
+    text-align: center;
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    background: rgba(45, 45, 75, 0.4); /* Dark semi-transparent for glass effect */
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3); /* Neon Cyan glow */
+    max-width: 700px; 
+    margin: 20px auto;
+    border: 1px solid rgba(0, 255, 255, 0.5);
+}
+.profile-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 4px solid #ff00a6; /* Neon Purple */
+    box-shadow: 0 0 10px #ff00a6;
+}
+.profile-card h3 {
+    color: #00ffff; /* Neon Cyan */
+    margin: 5px 0;
+    text-shadow: 0 0 5px #00ffff;
+}
+/* PERBAIKAN 1: Pastikan tag <p> LANGSUNG di bawah .profile-card (jabatan) tetap CENTER */
+.profile-card > p {
+    color: #c0c0e0;
+    margin: 10px 0; 
+    text-align: center; 
+}
+/* PERBAIKAN 2: Teks CV di dalam .profile-details di-Justify dan diberi margin */
+.profile-details p {
+    color: #c0c0e0;
+    margin: 10px 0; /* Memberi jarak per bagian CV */
+    text-align: justify; /* Rata Kanan-Kiri (Justify) */
+}
+.profile-details {
+    text-align: left;
+    margin-top: 20px;
+    border-top: 1px solid rgba(0, 255, 255, 0.2);
+    padding-top: 15px;
+}
+.google-maps-container {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid rgba(255, 0, 166, 0.5); 
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.2);
+    
+    /* SOLUSI: Batasi lebarnya dan pusatkan */
+    max-width: 725px; /* Batasi lebar peta agar tidak terlalu lebar */
+    margin-left: auto;
+    margin-right: auto;
+}
+.google-maps-container iframe {
+    width: 100%;
+    height: 300px;
+    border: 0;
+    border-radius: 6px;
+}
+
+/* ================= CV MODAL ================= */
+.cv-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.cv-content {
+    background: rgba(45,45,75,0.7);
+    padding: 30px;
+    border-radius: 12px;
+    width: 350px;
+    text-align: center;
+    border: 1px solid #00ffff;
+    box-shadow: 0 0 20px rgba(0,255,255,0.4);
+}
+
+.skill-list {
+    text-align: left;
+    margin-top: 15px;
+}
+
+.skill-list li {
+    margin: 5px 0;
+    color: #e0e0e0;
+}
+
+/* ================= EXPERIENCE SECTION ================= */
+.experience-section {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.experience-section h4 {
+    color: #00ffff;
+    margin-bottom: 10px;
+}
+
+.exp-item {
+    padding: 12px 15px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    background: rgba(45, 45, 75, 0.35);
+    border: 1px solid rgba(0,255,255,0.3);
+    box-shadow: 0 0 10px rgba(0,255,255,0.15);
+}
+
+.exp-item h5 {
+    margin: 0;
+    color: #ff00a6;
+}
+
+.exp-item p {
+    margin: 5px 0 0;
+}
+
+/* Tambahkan aturan ini ke style4.css */
+.experience-section > h4 {
+    text-align: center; /* Meratakan judul utama ke tengah */
+    margin-top: 25px;   /* Tambahkan sedikit ruang di atas judul */
+    margin-bottom: 15px; /* Tambahkan sedikit ruang di bawah judul */
+}
+
+/* Pertahankan atau tambahkan kembali styling untuk judul item (yang kita tetapkan di langkah sebelumnya) */
+.exp-item h4 { 
+    margin: 0;
+    color: #ff00a6; /* Neon Purple */
+    text-align: center;
+    font-size: 1em; 
+}
+
+/* Styling untuk deskripsi item (tetap rata tengah dan font kecil) */
+.exp-item p {
+    font-size: 0.9em; 
+    line-height: 1.4; 
+    text-align: center; 
+}
